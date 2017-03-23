@@ -12,10 +12,8 @@ repositories{
 }
 
 dependencies {
-    /* use mavenLocal */
-    /* compile group: 'args4j', name: 'args4j', version: '2.33' */
-    // https://mvnrepository.com/artifact/args4j/args4j
-    /* compile 'com.github.pochi:pochi-runner:1.0-SNAPSHOT' */
+    // https://mvnrepository.com/artifact/org.twitter4j/twitter4j-core
+    compile group: 'org.twitter4j', name: 'twitter4j-core', version: '4.0.1'
 
     /* use library in ./src/main/lib */
     /* compile fileTree(dir: './src/main/lib', includes: ['*.jar']) */

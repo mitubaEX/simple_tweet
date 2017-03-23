@@ -9,6 +9,13 @@ import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.User;
+import twitter4j.conf.ConfigurationBuilder;
+
 
 public class Main extends Application{
     TextField textField;
@@ -18,9 +25,17 @@ public class Main extends Application{
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
-        textField = new TextField("hello");
+    public void start(Stage stage) throws Exception{
+        textField = new TextField();
+
+        // ここにeventの内容を書く
         textField.setOnAction((ActionEvent)->{
+            try{
+                Twitter twitter = new TwitterFactory().getInstance();
+                Status status = twitter.updateStatus(textField.getText());
+            }catch(Exception e){
+                System.out.println(e);
+            }
             System.out.println(textField.getText());
             textField.setText("");
         });
